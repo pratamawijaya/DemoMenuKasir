@@ -4,6 +4,7 @@ import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.LinearLayoutManager
 import com.pratamawijaya.menukasir.R
 import com.pratamawijaya.menukasir.domain.Menu
 import com.pratamawijaya.menukasir.shared.GridItemDecoration
@@ -39,8 +40,7 @@ class MainActivity : AppCompatActivity(), MenuListener {
         // setup rv untuk selected menu
         rvMenuSelected.apply {
             adapter = menuSelectedAdapter
-            layoutManager = GridLayoutManager(this@MainActivity, GRID_SIZE)
-            addItemDecoration(GridItemDecoration(2, GRID_SIZE))
+            layoutManager = LinearLayoutManager(this@MainActivity)
         }
 
         // load menu, untuk demo, menggunakan data statis, next bisa saja diganti dari database
