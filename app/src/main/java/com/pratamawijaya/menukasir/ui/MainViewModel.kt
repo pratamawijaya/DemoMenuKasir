@@ -7,20 +7,28 @@ import java.math.BigDecimal
 
 class MainViewModel : ViewModel() {
 
+    // init selected menu menggunakan Set, biar tidak duplicate
     var listSelectedMenuState = MutableLiveData<Set<Menu>>()
-
+    // init list menu
     var listMenuState = MutableLiveData<List<Menu>>()
     private var listSelectedMenu = mutableSetOf<Menu>()
 
     init {
+        // init selected menu kosong
         listSelectedMenuState.value = emptySet()
     }
 
+    /**
+     * tambah menu ke list selected menu
+     */
     fun addMenu(menu: Menu) {
         listSelectedMenu.add(menu)
         listSelectedMenuState.value = listSelectedMenu
     }
 
+    /**
+     * load dummy data untuk menu
+     */
     fun loadMenu() {
         val listMenu = listOf(
                 Menu(
